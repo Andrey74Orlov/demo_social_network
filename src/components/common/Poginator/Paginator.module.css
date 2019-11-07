@@ -1,0 +1,7 @@
+
+.selectedPage {
+    font-weight: bold;
+    color: white;
+    padding:  2px;
+    border: 1px solid grey;
+}
