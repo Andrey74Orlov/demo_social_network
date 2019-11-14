@@ -6,7 +6,6 @@ import { Route } from 'react-router-dom';
 import Sittings from './components/Sittings/Sittings';
 import Music from './components/Music/Music';
 import News from './components/News/News';
-
 import UsersContainer from './components/Users/UsersContainer';
 import ProfileContainer from './components/Profile/ProfileContainer';
 import HeaderContainer from './components/Header/HeaderContainer';

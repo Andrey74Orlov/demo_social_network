@@ -11,38 +11,44 @@ const ProfileInfo = (props) => {
 
     if (!props.profile) {
         return (
-            <Preloader />
+            <Preloader/>
         )
     }
     const onMainPhotoSelected = (e) => {
-        if(e.target.files.length) {
+        if (e.target.files.length) {
             props.savePhoto(e.target.files[0])
         }
     }
     const onSubmit = (formData) => {
         props.saveProfile(formData).then(
-           () => {setEditMode(false)}
-       );
+            () => {
+                setEditMode(false)
+            }
+        );
     }
     return (
-        <div>           
+        <div>
             <div className={s.discriptionBlock}>
-                <img src={props.profile.photos.large || userPhoto} />
+                <img src={props.profile.photos.large || userPhoto}/>
                 {props.isOwner && <input type={"file"} onChange={onMainPhotoSelected}/>}
                 {editMode
                     ? <ProfileDataForm initialValues={props.profile} profile={props.profile} onSubmit={onSubmit}/>
-                    : <ProfileData goToEditMode={() => {setEditMode(true)}} profile={props.profile} isOwner={props.isOwner} /> }
+                    : <ProfileData goToEditMode={() => {
+                        setEditMode(true)
+                    }} profile={props.profile} isOwner={props.isOwner}/>}
 
-<ProfileStatusWithHooks status={props.status} updateStatus={props.updateStatus}/>
+                <ProfileStatusWithHooks status={props.status} updateStatus={props.updateStatus}/>
 
-            </div>            
+            </div>
         </div>
     )
 }
 
 const ProfileData = ({profile, isOwner, goToEditMode}) => {
-    return ( <div>
-            { isOwner && <div><button onClick={goToEditMode}>Edit</button></div>}
+    return (<div>
+            {isOwner && <div>
+                <button onClick={goToEditMode}>Edit</button>
+            </div>}
             <div>
                 <b>Full name</b>: {profile.fullName}
             </div>
@@ -59,7 +65,7 @@ const ProfileData = ({profile, isOwner, goToEditMode}) => {
             </div>
             <div>
                 <b>Contacts</b>: {Object.keys(profile.contacts).map(key => {
-                return  <Contacts key={key} contactTitle = {key} contactValue={profile.contacts[key]}  />
+                return <Contacts key={key} contactTitle={key} contactValue={profile.contacts[key]}/>
             })}
             </div>
 

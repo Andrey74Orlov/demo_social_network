@@ -16,7 +16,7 @@ describe("ProfileStatus Component", () => {
         expect(span).not.toBeNull();
     });
 
-    test("after creation <input> shouldn't be displayed", () => {
+    test("after creation <input> shouldn'to be displayed", () => {
         const component = create(<ProfileStatus status="It is a test" />);
         const root = component.root;
 
