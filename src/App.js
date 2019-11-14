@@ -17,6 +17,7 @@ import { withRouter, } from 'react-router-dom'
 import Preloader from './components/common/Preloader/Preloader';
 import store from './redux/redux-store';
 import { BrowserRouter } from 'react-router-dom';
+import { HashRouter } from 'react-router-dom';
 import { Provider } from 'react-redux'
 import { WithSuspense } from './hoc/withSuspense';
 //import DialogsContainer from './components/Dialogs/Dialogs.container'
@@ -62,11 +63,15 @@ let AppContainer = compose(
   connect(mapStateToProps, { initializeApp, }))(App);
 
 const SocialApp = () => {
-  return <BrowserRouter>
+  return (
+  // <BrowserRouter basename={process.env.PUBLIC_URL}>
+    <HashRouter>
     <Provider store={store}>
       <AppContainer />
     </Provider>
-  </BrowserRouter>
+    </HashRouter>
+ // </BrowserRouter>
+  )
 }
 
 export default SocialApp

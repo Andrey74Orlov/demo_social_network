@@ -14,7 +14,7 @@ const MyPosts = React.memo(props => {
     // }
     //shouldComponentUpdate replaced on the "PureComponent". In functional components we use "memo"
 
-    let postsElements = props.profilePage.postData.map(p => <Post message={p.message} like={p.like} />)
+    let postsElements = props.profilePage.postData.map(p => <Post key={p.id} message={p.message} like={p.like} />)
 
 
     let addNewPost = (value) => {
